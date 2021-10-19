@@ -15,6 +15,7 @@ const MoleculeCheckboxField = ({
   alertText,
   helpText,
   onChange,
+  onClickLabel = () => {},
   toggleIcon: ToggleIcon,
   toggleIconOnChange = () => {},
   ...props
@@ -34,6 +35,7 @@ const MoleculeCheckboxField = ({
         inline
         reverse
         isAligned
+        onClickLabel={onClickLabel}
       >
         <AtomCheckbox id={id} {...props} />
         {ToggleIcon && (
@@ -66,6 +68,9 @@ MoleculeCheckboxField.propTypes = {
 
   /* onChange callback */
   onChange: PropTypes.func,
+
+  /* onClickLabel callback */
+  onClickLabel: PropTypes.func,
 
   /** Success message to display when success state  */
   successText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
