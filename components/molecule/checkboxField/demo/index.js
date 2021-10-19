@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import MoleculeCheckboxField from 'components/molecule/checkboxField/src'
+import {useState} from 'react'
 
 import './index.scss'
 
@@ -12,18 +13,20 @@ const styleListItem = {
 }
 
 const Demo = () => {
+  const [checked, setChecked] = useState(false)
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <h1>Checkbox Field</h1>
         <ul style={styleList}>
           <li style={styleListItem}>
-            <h2>With Information HelpText</h2>
+            <h2>With Information HelpText and click on label</h2>
             <MoleculeCheckboxField
+              checked={checked}
+              helpText="Tu descripción en Latin"
               id="info-help-text"
               label="Description"
-              helpText="Tu descripción en Latin"
-              onChange={(e, {name, value}) => console.log({[name]: value})}
+              onClickLabel={() => setChecked(!checked)}
             />
           </li>
           <li style={styleListItem}>
